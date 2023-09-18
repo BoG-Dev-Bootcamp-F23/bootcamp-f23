@@ -13,7 +13,7 @@ body {
     display: flex;
 }
 
-.header-left-container > ul {
+.header-left-container ul {
     display: flex;
     padding-left: 0;
     padding-right: 40px;
@@ -23,4 +23,29 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     list-style: none;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+section h1 {
+    font-size: 5em;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 400px;
+}
+
+.search-container input {
+    color: white;
+    border-color: transparent;
+    border-radius: 8px;
+    background-color: gray;
+    width: 200px;
 }
