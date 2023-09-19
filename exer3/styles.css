@@ -1,12 +1,14 @@
 body {
     margin: 0;
-    font-family: 'Inclusive Sans', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Hind', sans-serif;
+    font-family: 'Molengo', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
+    max-width: auto;
     background-color: #4285F4;;
     color: white;
 }
@@ -80,6 +82,7 @@ section h1 {
 
 .search-bar-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     min-width: 1200px;
     min-height: 50px;
@@ -95,11 +98,20 @@ section h1 {
     font-size: 50px;
 }
 
+#input-field:focus {
+    border-color: #0f1d9d;
+}
+
 #search-button {
     border-color: transparent;
     border-radius: 8px;
     color:rgb(95, 95, 95);
     cursor: pointer;
+    font-size: 3em;
+}
+
+#search-button:hover {
+    background-color: rgba(225, 224, 224, 0.779);;
 }
 
 footer {
