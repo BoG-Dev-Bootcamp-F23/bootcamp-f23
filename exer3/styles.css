@@ -98,10 +98,6 @@ section h1 {
     font-size: 50px;
 }
 
-#input-field:focus {
-    border-color: #0f1d9d;
-}
-
 #search-button {
     border-color: transparent;
     border-radius: 8px;
