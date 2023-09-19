@@ -8,9 +8,9 @@ body {
 .nav-container {
     display: flex;
     justify-content: space-between;
-    max-width: auto;
     background-color: #4285F4;;
     color: white;
+    padding-top: 20px;
 }
 
 #google-logo {
@@ -80,12 +80,10 @@ section h1 {
     justify-content: space-evenly;
     min-width: 1200px;
     min-height: 50px;
-    margin-bottom: 20%;
 }
 
 #input-field {
     border-color: transparent;
-    border-radius: 25px;
     background-color: rgba(225, 224, 224, 0.779);
     color:rgba(104, 102, 102, 0.661);
     width: 1000px;
@@ -104,8 +102,38 @@ section h1 {
     background-color: rgba(225, 224, 224, 0.779);;
 }
 
+#options-container {
+    list-style-type: none;
+}
+
+#options-container {
+    margin-right: 125px;
+    margin-top: 0;
+    color:rgba(104, 102, 102, 0.661);
+    width: 1000px;
+    padding: 0;
+    visibility: hidden;
+}
+
+#options-container li button {
+    border-color: transparent;
+    text-align: start;
+    font-size: 50px;
+    min-width: 1007px;
+    cursor: pointer;
+}
+
+#options-container li button:hover {
+    background-color: rgba(104, 102, 102, 0.661);;
+}
+
+.visibility {
+    visibility: visible;
+}
+
 footer {
     display: flex;
+    margin-top: 300px;
     justify-content: center;
 }
 

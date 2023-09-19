@@ -1,4 +1,7 @@
 const inputField = document.querySelector("#input-field");
+const inputSelection = document.querySelector("#options-container");
+const selectionButtons = [document.querySelector("#spaghetti"), 
+    document.querySelector("#cats"), document.querySelector("#plat")];
 
 const ogInputValue = "Search...";
 let newInputValue = ogInputValue;
@@ -9,6 +12,7 @@ inputField.addEventListener("focus",() => {
     } else {
         inputField.value = newInputValue;
     }
+    inputSelection.style.visibility = "visible";
 })
 
 inputField.addEventListener("input", () => {
@@ -20,6 +24,7 @@ inputField.addEventListener("blur", () => {
         newInputValue = ogInputValue;
     }
     inputField.value = newInputValue;
+    inputSelection.style.visibility = "hidden";
 })
 
 
