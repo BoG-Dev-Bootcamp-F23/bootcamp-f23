@@ -7,7 +7,6 @@ const cats = document.querySelector("#cats")
 const plat = document.querySelector("#plat")
 
 const ogInputValue = "Search...";
-let actualInputValue = inputField.value;
 let toBeInputValue = ogInputValue;
 
 const validInput = [spaghetti.textContent, cats.textContent, plat.textContent];
@@ -41,7 +40,6 @@ inputField.addEventListener("blur", () => {
     }
     inputSelection.style.visibility = "hidden";
 })
-
 spaghetti.addEventListener("mouseenter", () => {
     toBeInputValue = spaghetti.textContent;
 });
@@ -66,4 +64,18 @@ plat.addEventListener("mouseleave", () => {
     inputField.style.color = "black";
 });
 
-inputButton.addEventListener('click')
+inputButton.addEventListener('click', () => {
+    if (inputField.value === validInput[0]) {
+        window.open("spaghetti.html", "_self")
+    } else if (inputField.value === validInput[1]) {
+        window.open("cats.html", "_self")
+    } else if (inputField.value === validInput[2]) {
+        window.open("platypus.html", "_self")
+    } else {
+        inputButton.classList.add("shake");
+        setTimeout(() => {
+            inputButton.classList.remove("shake");
+        }, 1000);
+
+    }
+})
