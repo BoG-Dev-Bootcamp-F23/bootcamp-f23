@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Google</title>
 </head>
@@ -11,7 +14,7 @@
     <main>
         <header>
             <nav class="nav-container">
-                <img alt="Google Icon">
+                <img src="images/google-icon.jpg" alt="Google Icon" id="google-logo">
                 <div class="header-left-container">
                 <ul>
                     <li>1</li>
@@ -24,16 +27,23 @@
         </header>
 
         <section>
-            <h1>Google</h1>
-            <div class="search-container">
-                <input>
-                <button>Enter</button>
+            <div class="search-logo-container">
+                <p id="search-logo-1">G</p>
+                <p id="search-logo-2">o</p>
+                <p id="search-logo-3">o</p>
+                <p id="search-logo-4">g</p>
+                <p id="search-logo-5">l</p>
+                <p id="search-logo-6">e</p>
+            </div>
+            <div class="search-bar-container">
+                <input id="input-field" value="Search...">
+                <button id="search-button">Enter</button>
             </div>
         </section>
 
-        <footer>
-
-        </footer>
+        <!-- <footer>
+            <p>Made by Charlie Lin</p>
+        </footer> -->
     </main>
 </body>
 </html>
