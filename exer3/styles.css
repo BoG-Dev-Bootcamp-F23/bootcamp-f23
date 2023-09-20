@@ -7,6 +7,7 @@ body {
 
 .nav-container {
     display: flex;
+    position: relative;
     justify-content: space-between;
     background-color: #4285F4;;
     color: white;
@@ -144,7 +145,7 @@ body {
 
 footer {
     display: flex;
-    margin-top: 300px;
+    margin-top: 250px;
     justify-content: center;
 }
 
@@ -157,23 +158,61 @@ footer span {
 #spaghetti-section {
     display: flex;
     justify-content: center;
-    text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
     margin-top: 10%;
+    text-align: center;
 }
 
 #spaghetti-section article {
-    display: flex
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1500px;
+    flex-wrap: wrap;
+    margin-right: 100px;
 }
 
-#spaghetti-section article * {
-    border: red solid;
+#spaghetti-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 200px;
+    margin-left: 200px;
+    font-size: 1.2em;
 }
 
- 
+#spaghetti-hero-text h1 {
+    height: 110px;
+    font-size: 3em;
+    margin-top: 12px;
+}
+
+#spaghetti-hero-text h2 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    margin-bottom: 0;
+}
+
+#spaghetti-hero-text ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#spaghetti-section ol {
+    margin-left: 150px;
+    margin-top: 125px;
+    text-align: left;
+    font-size: 50px;
+}
+
+#spaghetti-section ol li {
+    padding: 10px;
+    max-width: 1053.560px;
+}
+
 #spaghetti-hero-img {
     height: auto;
     width: 500px;
-    border-radius: 100%;
+    border-radius: 10%;
+    box-shadow: 1px 5px 40px #DB4437 ;
 }
