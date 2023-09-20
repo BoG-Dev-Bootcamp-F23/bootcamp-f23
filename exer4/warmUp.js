@@ -16,7 +16,17 @@
  * F = anything < 60
  */
 function toLetterGrade(numGrade) {
-  // TODO
+  if (numGrade >= 0 && numGrade <= 100) {
+    if (numGrade >= 90 && numGrade <= 100) {
+      return "A"
+    } else if (numGrade >= 80 && numGrade <= 89) {
+      return "B"
+    } else if {
+      
+    }
+  } else {
+    return "INVALID"
+  }
 }
 
 /**
