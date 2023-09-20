@@ -11,6 +11,11 @@ let toBeInputValue = ogInputValue;
 
 const validInput = [spaghetti.textContent, cats.textContent, plat.textContent];
 
+
+
+//TLDR: made it so that inputs that aren't from options/empty inputs shake search button. User can type into the input (non case sensitive) or select an input to be
+//put into the input field. If it is valid the input text would turn black, else if the user types some random letters/non-relevent words, it will retain the input and remain gray, and if
+//input field is empty it will revert to 'Search...' in gray.
 inputField.addEventListener("focus", () => {
   if (toBeInputValue === ogInputValue) {
     inputField.value = "";
