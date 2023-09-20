@@ -30,6 +30,7 @@ body {
   max-width: 50px;
   margin-right: 30px;
   border-radius: 100%;
+  box-shadow: 0.5px 1px 20px rgb(255, 255, 255);
 }
 
 .header-left-container {
@@ -171,7 +172,7 @@ body {
 
 footer {
   display: flex;
-  margin-top: 250px;
+  margin-top: 200px;
   justify-content: center;
 }
 
@@ -233,7 +234,7 @@ footer span {
 
 #spaghetti-section ol li {
   padding: 10px;
-  max-width: 1053.56px;
+  max-width: 1053px;
 }
 
 #spaghetti-hero-img {
@@ -265,3 +266,27 @@ footer span {
     transform: scale(1.5);
     transition: .5s;
 }
+
+#plat-section {
+    display: flex;
+    justify-content: center;
+}
+
+#plat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6%;
+}
+
+#plat-container p {
+    max-width: 70%;
+    font-size: 2em;
+}
+
+#plat-container img {
+    height: auto;
+    width: 500px
+}
+
