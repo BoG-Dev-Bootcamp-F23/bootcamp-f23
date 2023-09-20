@@ -11,8 +11,6 @@ let toBeInputValue = ogInputValue;
 
 const validInput = [spaghetti.textContent, cats.textContent, plat.textContent];
 
-//When user clicks input field display list of options. When user clicks an option that option fills the input with the option and turns the text black.
-//User can still type in input field. If typed input (non-case sensitive) does not match one of the options, it is left gray. If it is, the input turns black.
 inputField.addEventListener("focus",() => {
     if (toBeInputValue === ogInputValue) {
         inputField.value = "";
@@ -40,36 +38,33 @@ inputField.addEventListener("blur", () => {
     }
     inputSelection.style.visibility = "hidden";
 })
-spaghetti.addEventListener("mouseenter", () => {
-    toBeInputValue = spaghetti.textContent;
-});
+spaghetti.addEventListener("mouseenter", () => toBeInputValue = spaghetti.textContent);
+
 spaghetti.addEventListener("mouseleave", () => {
     toBeInputValue = "";
     inputField.style.color = "black";
 });
 
-cats.addEventListener("mouseenter", () => {
-    toBeInputValue = cats.textContent;
-});
+cats.addEventListener("mouseenter", () => toBeInputValue = cats.textContent);
+
 cats.addEventListener("mouseleave", () => {
     toBeInputValue = "";
     inputField.style.color = "black";
 });
 
-plat.addEventListener("mouseenter", () => {
-    toBeInputValue = plat.textContent;
-});
+plat.addEventListener("mouseenter", () => toBeInputValue = plat.textContent);
+
 plat.addEventListener("mouseleave", () => {
     toBeInputValue = "";
     inputField.style.color = "black";
 });
 
 inputButton.addEventListener('click', () => {
-    if (inputField.value === validInput[0]) {
+    if (inputField.value.toLowerCase() === validInput[0]) {
         window.open("spaghetti.html", "_self")
-    } else if (inputField.value === validInput[1]) {
+    } else if (inputField.value.toLowerCase() === validInput[1]) {
         window.open("cats.html", "_self")
-    } else if (inputField.value === validInput[2]) {
+    } else if (inputField.value.toLowerCase() === validInput[2]) {
         window.open("platypus.html", "_self")
     } else {
         inputButton.classList.add("shake");

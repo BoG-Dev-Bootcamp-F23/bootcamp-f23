@@ -41,14 +41,14 @@ body {
     list-style: none;
 }
 
-section {
+#home-section {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 10rem;
 }
 
-section h1 {
+#home-section h1 {
     font-size: 5em;
 }
 
@@ -152,4 +152,28 @@ footer span {
     display: flex;
     padding-left: 2px;
     padding-right: 2px;
+}
+
+#spaghetti-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+}
+
+#spaghetti-section article {
+    display: flex
+}
+
+#spaghetti-section article * {
+    border: red solid;
+}
+
+ 
+#spaghetti-hero-img {
+    height: auto;
+    width: 500px;
+    border-radius: 100%;
 }
