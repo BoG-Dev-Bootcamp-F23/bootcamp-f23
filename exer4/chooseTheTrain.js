@@ -108,9 +108,8 @@ function updateLineColor(arrivals) {
   const spreadArr = [...filteredArr];
 
   const mappedArr = spreadArr.map((x) => {
-    let y = x;
-    y.LINE = "PINK";
-    return y;
+    x.LINE = "PINK";
+    return x;
   })
 
   return mappedArr;
