@@ -36,8 +36,12 @@ const railArray = await getRealTimeRailCoordinates();
  * DO NOT MODIFY railArray! You'll need it for later
  */
 function getKeysToArr(arrivals) {
-  const keyArray = typeof arrivals[0][0]
-  return keyArray
+  //arrivals is an array of objects with the same properties
+  let keyArr = [];
+  for (let prop in arrivals[0]) {
+    keyArr.push(prop);
+  }
+  return keyArr;
 }
 
 /**
@@ -53,7 +57,14 @@ function getKeysToArr(arrivals) {
  * DO NOT MODIFY railArray! You'll need it for later
  */
 function getTrainComingIn1Minute(arrivals) {
-  // TODO
+  let arriving1Min = [];
+  arrivals.forEach((x) => {
+    console.log(x)
+    if (x.WAITING_TIME === "1 min") {
+      arriving1Min.push(x);
+    }
+  })
+  return arriving1Min;
 }
 
 /**
@@ -64,6 +75,12 @@ function getTrainComingIn1Minute(arrivals) {
  * new array (meaning all elements in filtered array are deep copied), map the
  * Line in the copy array to be Pink, and return the resulting array
  *
+ * 
+ * 1. filter array for lines with blue lines
+ * 2. take that new array with elements that have blue lines and make a copy of it, meaning
+ * -2 copy the filtered array into a new array
+ * 3. return the mapped the new array with pink lines
+ * 
  * Example:
  * {
  *      ...
@@ -85,7 +102,18 @@ function getTrainComingIn1Minute(arrivals) {
  *
  */
 function updateLineColor(arrivals) {
-  // TODO
+  const filteredArr = arrivals.filter((x) => {
+    return x.LINE === "BLUE";
+  })
+  const spreadArr = [...filteredArr];
+
+  const mappedArr = spreadArr.map((x) => {
+    let y = x;
+    y.LINE = "PINK";
+    return y;
+  })
+
+  return mappedArr;
 }
 
 console.log(getKeysToArr(railArray));
