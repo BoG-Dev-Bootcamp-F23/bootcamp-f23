@@ -8,16 +8,15 @@ import TrainList from '../pages/TrainList';
 export default function LinesPage() {
   // initialize some currColor state
 
-  const [currColor, setCurrColor] = useState('gold');
+  const [currColor, setCurrColor] = useState('green');
 
   return (
-    <div>
-      // YOUR JSX CODE
-      <p>flaksjfdskfj</p>
-      <NavBar color={currColor} data={stationData} />
-      <TrainList color={currColor} data={trainData} />
-
-      // YOUR JSX CODE
+    <div className='lines-page-container'>
+      <h1 className='header'>{currColor.toUpperCase()}</h1>
+      <div className='lines-page-info-container'>
+        <NavBar color={currColor} data={stationData} />
+        <TrainList color={currColor} data={trainData} />
+      </div>
     </div>
   );
 }
