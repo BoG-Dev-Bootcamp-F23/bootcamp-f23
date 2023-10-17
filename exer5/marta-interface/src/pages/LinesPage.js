@@ -1,19 +1,16 @@
-// get static data
-import stationData from '../server/stationData';
-import trainData from '../server/trainData';
-import { useState } from 'react';
-import NavBar from '../components/NavBar';
-import TrainList from '../pages/TrainList';
+import stationData from "../server/stationData";
+import trainData from "../server/trainData";
+import { useState } from "react";
+import NavBar from "../components/NavBar";
+import TrainList from "../pages/TrainList";
 
 export default function LinesPage() {
-  // initialize some currColor state
-
-  const [currColor, setCurrColor] = useState('green');
+  const [currColor, setCurrColor] = useState("green");
 
   return (
-    <div className='lines-page-container'>
-      <h1 className='header'>{currColor.toUpperCase()}</h1>
-      <div className='lines-page-info-container'>
+    <div className="lines-page-container">
+      <h1 className="header">{currColor.toUpperCase()}</h1>
+      <div className="lines-page-info-container">
         <NavBar color={currColor} data={stationData} />
         <TrainList color={currColor} data={trainData} />
       </div>
