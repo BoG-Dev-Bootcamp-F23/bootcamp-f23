@@ -28,8 +28,6 @@
 
 .navbar-header {
     color: rgb(139, 122, 111);
-    position: sticky;
-    top: 5px;
     font-size: 23px;
     padding: 0px 15px;
     margin-bottom: 0px;
@@ -38,8 +36,6 @@
 .navbar-ul {
     list-style: none;
     padding: 0;
-    position: sticky;
-    top: 30px;
 }
 
 .navbar-ul li {
