@@ -4,11 +4,10 @@ import { useState } from "react";
 export default function TrainList(props) {
   const { color, data } = props;
 
-  const filteredData = data.RailArrivals.filter((x) => {
-    return x.LINE === color.toUpperCase();
+  let filteredData = data?.filter((x) => {
+    return x.LINE === color?.toUpperCase();
   });
 
-  const [lineColor, setLineColor] = useState(color);
 
   const [active, setActive] = useState(0);
 
@@ -41,7 +40,7 @@ export default function TrainList(props) {
             handleButtonClick(2);
           }}
         >
-          {lineColor === "gold" || lineColor === "red"
+          {color === "gold" || color === "red"
             ? "Northbound"
             : "Eastbound"}
         </button>
@@ -51,12 +50,12 @@ export default function TrainList(props) {
             handleButtonClick(3);
           }}
         >
-          {lineColor === "gold" || lineColor === "red"
+          {color === "gold" || color === "red"
             ? "Southbound"
             : "Westbound"}
         </button>
       </div>
-      {filteredData.map((x) => {
+      {filteredData?.map((x) => {
         return <Train {...x} />;
       })}
     </div>

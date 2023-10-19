@@ -1,4 +1,5 @@
 export default function Train(props) {
+
   const destination = props.DESTINATION + " Station";
   const ogStation = props.STATION;
   const onTime = props.DELAY === "T0S" ? "On Time" : "Delayed";
