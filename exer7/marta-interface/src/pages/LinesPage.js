@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import TrainList from "../pages/TrainList";
 
-export default function LinesPage() {
-  const [currColor, setCurrColor] = useState("gold");
+export default function LinesPage({startingColor}) {
+  console.log(startingColor)
+  const [currColor, setCurrColor] = useState(startingColor);
   const [stationData, setStationData] = useState(null);
   const [trainData, setTrainData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [startingStation, setStartingStation] = useState("All Stations");
   const [trainDataLoading, setTrainDataLoading] = useState(true);
+
 
   const API_URL = "http://13.59.196.129:3001/";
 
@@ -28,10 +30,6 @@ export default function LinesPage() {
     setTrainDataLoading(true);
   }
 
-  //On load, loading is set true then set false once data is received.
-  //On line swtich, loading is set to true, set false once data os receoved/
-
-  
 useEffect(() => {
   getStationData();
   getTrainData();
