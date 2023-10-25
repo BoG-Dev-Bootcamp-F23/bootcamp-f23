@@ -1,63 +1,124 @@
 import Train from "../components/Train";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function TrainList(props) {
-  const { color, data } = props;
+  const { color, data, start, loading } = props;
+  const [filteredData, setFilteredData] = useState([]);
+  const [selected, setSelected] = useState({"Arriving": true, "Scheduled": true, "Eastbound": true, "Westbound": true, "Northbound": true,
+"Southbound": true});
+  const [ns, setNs] = useState(false);
+  
+  const resetSelected = () => {
+    setSelected({"Arriving": true, "Scheduled": true, "Eastbound": true, "Westbound": true, "Northbound": true,
+    "Southbound": true});
+  }
 
-  let filteredData = data?.filter((x) => {
-    return x.LINE === color?.toUpperCase();
-  });
+  const filterSelected = (filtered) => {
+    if (!selected["Arriving"]) {
+      filtered = filtered.filter((x) => {
+        return x.WAITING_TIME !== "Arriving";
+      })
+    }
+    if (!selected["Scheduled"]) {
+      filtered = filtered.filter((x) => {
+        return x.WAITING_TIME == "Arriving";
+      })
+    }
+    if (!selected["Eastbound"]) {
+      filtered = filtered.filter((x) => {
+        return x.DIRECTION !== "E";
+      })
+    }
+    if (!selected["Westbound"]) {
+      filtered = filtered.filter((x) => {
+        return x.DIRECTION !== "W";
+      })
+    }
+    if (!selected["Northbound"]) {
+      filtered = filtered.filter((x) => {
+        return x.DIRECTION !== "N";
+      })
+    }
+    if (!selected["Southbound"]) {
+      filtered = filtered.filter((x) => {
+        return x.DIRECTION !== "S";
+      })
+    }
+    return filtered;
+  }
 
+  useEffect(() => {
+    setNs(color === "gold" || color === "red")
+  }, [color])
 
-  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const filtered = data?.filter((x) => {
+      if (start === "All Stations") {
+        return x.LINE === color.toUpperCase()
+      } else {
+        return x.LINE === color.toUpperCase() && x.STATION.includes(start.toUpperCase())
+      }
+    });
+    setFilteredData(filterSelected(filtered))
+  }, [start, data, selected]);
 
-  const handleButtonClick = (index) => {
-    setActive(index);
+  useEffect(() => {
+    resetSelected();
+  }, [color])
+
+  const handleButtonClick = (name) => {
+    const prevSelected = JSON.parse(JSON.stringify(selected));
+    prevSelected[name] = !prevSelected[name]
+    setSelected(prevSelected);
   };
 
   return (
     <div>
       <div className="line-button-container">
         <button
-          className={`line-button ${active === 0 && "active-button"}`}
+          className={`line-button ${selected["Arriving"] && "active-button"}`}
           onClick={() => {
-            handleButtonClick(0);
+            handleButtonClick("Arriving");
           }}
         >
           Arriving
         </button>
         <button
-          className={`line-button ${active === 1 && "active-button"}`}
+          className={`line-button ${selected["Scheduled"] && "active-button"}`}
           onClick={() => {
-            handleButtonClick(1);
+            handleButtonClick("Scheduled");
           }}
         >
           Scheduled
         </button>
         <button
-          className={`line-button ${active === 2 && "active-button"}`}
+          className={`line-button ${selected[ns ? "Northbound" : "Eastbound"] && "active-button"}`}
           onClick={() => {
-            handleButtonClick(2);
+            handleButtonClick(ns ? "Northbound" : "Eastbound");
           }}
         >
-          {color === "gold" || color === "red"
+          {ns
             ? "Northbound"
             : "Eastbound"}
         </button>
         <button
-          className={`line-button ${active === 3 && "active-button"}`}
+          className={`line-button ${selected[ns ? "Southbound" : "Westbound"] && "active-button"}`}
           onClick={() => {
-            handleButtonClick(3);
+            handleButtonClick(ns
+            ? "Southbound"
+            : "Westbound");
           }}
         >
-          {color === "gold" || color === "red"
+          {ns
             ? "Southbound"
             : "Westbound"}
         </button>
       </div>
       {filteredData?.map((x) => {
-        return <Train {...x} />;
+        return <Train {...x} key={JSON.stringify(x)} />;
       })}
+      {loading? <h1>Loading</h1> : <p></p>}
+      {!loading && filteredData.length == 0 ? <h1>No trains available.</h1> : <></>}
     </div>
   );
 }

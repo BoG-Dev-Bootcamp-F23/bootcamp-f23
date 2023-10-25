@@ -7,6 +7,8 @@ export default function LinesPage() {
   const [stationData, setStationData] = useState(null);
   const [trainData, setTrainData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [startingStation, setStartingStation] = useState("All Stations");
+  const [trainDataLoading, setTrainDataLoading] = useState(true);
 
   const API_URL = "http://13.59.196.129:3001/";
 
@@ -17,11 +19,14 @@ export default function LinesPage() {
   }
 
   async function getTrainData() {
-    const data = await fetch(API_URL + `arrivals/${currColor}`);
-    const newData = await data.json()
-    setTrainData(newData)
+    new Promise(async () => {
+      const data = await fetch(API_URL + `arrivals/${currColor}`);
+      const newData = await data.json()
+      setTrainData(newData);
+      setTrainDataLoading(false);
+    })
+    setTrainDataLoading(true);
   }
-
 
   //On load, loading is set true then set false once data is received.
   //On line swtich, loading is set to true, set false once data os receoved/
@@ -66,8 +71,8 @@ useEffect(() => {
       </ul>
       <h1 className="header">{currColor?.toUpperCase()}</h1>
       <div className="lines-page-info-container">
-        <NavBar color={currColor} data={stationData} />
-        <TrainList color={currColor} data={trainData} />
+        <NavBar color={currColor} data={stationData} start={startingStation} setStart={setStartingStation}/>
+        <TrainList color={currColor} data={trainData} start={startingStation} loading={trainDataLoading}/>
       </div>
     </div>
 }
